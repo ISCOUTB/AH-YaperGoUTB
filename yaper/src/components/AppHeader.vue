@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="logo">
-      <img src="@/assets/LOGO-SECUNDARIO-RGB.png" alt="Logo" />
+      <img src="@/assets/LOGO-SECUNDARIO-RGB-1.png" alt="Logo" />
     </div>
       <h1>YaperGo UTB</h1>
   </header>
