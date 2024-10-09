@@ -39,13 +39,13 @@ export default {
         {
           id: 1,
           name: 'Psp',
-          description: 'Consola Portatil de Videojuegos.',
+          description: 'Consola portatil de videojuegos',
           image: require('@/assets/psp-1000.jpg'), // Carga la imagen 1
         },
         {
           id: 2,
           name: 'Audifonos',
-          description: 'Audifonos negros inalambricos',
+          description: 'Audifonos negros inalambricos.',
           image: require('@/assets/audifonos.jpg'), // Carga la imagen 2
         },
       ],

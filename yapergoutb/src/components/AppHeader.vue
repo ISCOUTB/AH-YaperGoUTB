@@ -1,15 +1,15 @@
 <template>
   <header class="header">
     <div class="logo">
-      <img src="@/assets/LOGO-SECUNDARIO-RGB-1.png" alt="Logo" />
+      <img src="@/assets/LOGO-SECUNDARIO-RGB.png" alt="Logo" />
     </div>
-    <h1>YaperGO UTB</h1>
+      <h1>YaperGo UTB</h1>
   </header>
 </template>
 
 <script>
 export default {
-  name: 'AppHeader', 
+  name: 'AppHeader',
 };
 </script>
 
