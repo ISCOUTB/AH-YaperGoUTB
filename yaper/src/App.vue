@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <AppHeader />
 
     <!-- Contenido Central -->
@@ -70,9 +69,8 @@ export default {
 
 .image-gallery {
   display: flex;
-  flex-direction: column; /* Cambiamos la dirección a columna */
-  gap: 20px;
+  flex-direction: column; 
   justify-content: center;
-  align-items: center; /* Centra las imágenes horizontalmente */
+  align-items: center;
 }
 </style>
