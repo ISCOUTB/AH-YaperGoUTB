@@ -6,7 +6,12 @@
     <!-- Contenido Central -->
     <main class="main-content">
       <!-- Calendario de VCalendar -->
-      <vc-date-picker v-model="selectedDate" is-expanded></vc-date-picker>
+      <vc-date-picker
+        v-model="selectedDate"
+        is-expanded
+        show-calendar
+        :attributes="[{ key: 'today', highlight: { backgroundColor: '#ffcc00' }, dates: new Date() }]"
+      ></vc-date-picker>
       <p>Fecha seleccionada: {{ selectedDate }}</p>
 
       <!-- Imágenes con nombre y descripción -->
@@ -34,18 +39,18 @@ export default {
   },
   data() {
     return {
-      selectedDate: null,
+      selectedDate: new Date(),
       items: [
         {
           id: 1,
           name: 'Psp',
-          description: 'Consola portatil de videojuegos',
+          description: 'Consola portátil de videojuegos',
           image: require('@/assets/psp-1000.jpg'), // Carga la imagen 1
         },
         {
           id: 2,
           name: 'Audifonos',
-          description: 'Audifonos negros inalambricos.',
+          description: 'Audífonos negros inalámbricos.',
           image: require('@/assets/audifonos.jpg'), // Carga la imagen 2
         },
       ],
@@ -65,8 +70,9 @@ export default {
 
 .image-gallery {
   display: flex;
+  flex-direction: column; /* Cambiamos la dirección a columna */
   gap: 20px;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center; /* Centra las imágenes horizontalmente */
 }
 </style>
