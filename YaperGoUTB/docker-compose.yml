@@ -1,17 +1,16 @@
-version: "3.8"
-
 services:
   vue:
     build: 
       context: ./app
       dockerfile: Dockerfile
-
+    container_name: ah-yapergo_web
     ports:
-      - "8080:8080"
+      - "9025:8080"
     command: sh -c "http-server dist" 
 
   db:
     image: mysql:latest
+    container_name: ah-yapergo_db
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: exampledb
@@ -20,8 +19,17 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3315:3306"
 
+  api:
+    build: .
+    container_name: ah-yapergo_api
+    ports:
+      - "8025:5000"
+    volumes:
+      - .:/code
+    command: python app.py
+  
   adminer:
     image: adminer
     ports:
@@ -29,3 +37,7 @@ services:
 
 volumes:
   mysql_data:
+
+#netwoks:
+ # ah:
+  #  external: true
