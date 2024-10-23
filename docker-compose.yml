@@ -1,13 +1,17 @@
 services:
+#APP WEB
   vue:
     build: 
-      context: ./app
+      context: .
       dockerfile: Dockerfile
     container_name: ah-yapergo_web
     ports:
       - "9025:8080"
     command: sh -c "http-server dist" 
+    networks:
+      - ag
 
+#BASE DE DATOS
   db:
     image: mysql:latest
     container_name: ah-yapergo_db
@@ -20,6 +24,8 @@ services:
       - mysql_data:/var/lib/mysql
     ports:
       - "3315:3306"
+    networks:
+      - ag
 
   api:
     build: .
@@ -38,6 +44,6 @@ services:
 volumes:
   mysql_data:
 
-#netwoks:
- # ah:
-  #  external: true
+networks:
+  ag:
+    external: true
