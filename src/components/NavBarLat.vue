@@ -1,15 +1,15 @@
-
-
 <script>
 //Importaciones
 //import AccountActions from './components/AccountActions.vue';
 import Filtros from '../components/Filtros.vue';
 import AccountActions from '../components/AccountActions.vue';
+import OtherOptions from './OtherOptions.vue';
 
 export default {
     components: {
         Filtros,
         AccountActions,
+        OtherOptions,
     },
 
     data() {
@@ -36,23 +36,35 @@ export default {
 
         <div :class="['sidebar', { active: isActive }]">
             <button class="close-btn" @click="toggleSidebar"> </button>
+            <OtherOptions></OtherOptions>
+
+            <Filtros></Filtros>
+            <div class="footer">
+                <hr>
+                <AccountActions></AccountActions>
+            </div>
+
+            <!--
             <ul class="sidebar-options">
-                <!--
                     <li><a href="#option1">Option 1</a></li>
                     <li><a href="#option2">Option 2</a></li>
                     <li><a href="#option3">Option 3</a></li>
                     <li><a href="#option4">Option 4</a></li>
-                    -->
-                    <Filtros></Filtros>
-                    <AccountActions></AccountActions>
-                    
                 </ul>
-            </div>
+                -->
         </div>
+    </div>
 </template>
 
 
 <style scoped>
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 .icono-menu {
     background-image: url("../components/icons/NavBarLat.svg");
     background-repeat: no-repeat;
@@ -63,7 +75,6 @@ export default {
     background-size: 30px 30px;
     /* Tamaño del Icono */
 }
-
 
 .open-btn {
     font-size: 18px;
@@ -106,7 +117,8 @@ export default {
     background-image: url("../components/icons/arrow.svg");
     background-repeat: no-repeat;
     background-position: center center;
-    transform: rotate(90deg); /* Rota el botón 90 grados */
+    transform: rotate(90deg);
+    /* Rota el botón 90 grados */
     position: absolute;
     top: 3px;
     right: 10px;

@@ -3,6 +3,7 @@
 import NavBarLat from './components/NavBarLat.vue';
 import AccountActions from './components/AccountActions.vue';
 import Filtros from './components/Filtros.vue';
+import OtherOptions from './components/OtherOptions.vue';
 </script>
 
 
@@ -11,6 +12,7 @@ import Filtros from './components/Filtros.vue';
         
         <NavBarLat></NavBarLat>
         <!--
+            <OtherOptions></OtherOptions>
             <Filtros></Filtros>
             <AccountActions></AccountActions>
             -->
@@ -21,6 +23,6 @@ import Filtros from './components/Filtros.vue';
 <style scoped>
 .pss {
     /*color: aqua;*/
-    background-color: white;
+    background-color: rgb(65, 12, 198);
 }
 </style>

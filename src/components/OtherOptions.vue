@@ -3,13 +3,15 @@
 
 
 <template>
-    <div class="continer my-4 ms-2 color-text">
+
+    <div class="continer my-3 ms-2 color-text">
+        <h3 class="ms-2">Other</h3>
 
         <div class="btn-group-vertical no-border-bg" role="group" aria-label="Vertical button group">
 
-            <button type="button" class="btn btn-primary icono help">Help</button>
-            <button type="button" class="btn btn-primary icono settings">Settings</button>
-            <button type="button" class="btn btn-primary icono logout">Log out</button>
+            <button type="button" class="btn btn-primary icono alert-obj">Reportes</button>
+            <button type="button" class="btn btn-primary icono unclaimed ">No reclamados</button>
+            <button type="button" class="btn btn-primary icono trash">Desechado</button>
 
         </div>
     </div>
@@ -32,16 +34,16 @@
     /* Tamaño del Icono */
 }
 
-.help {
-    background-image: url("../components/icons/help.svg");
+.alert-obj {
+    background-image: url("../components/icons/alert.svg");
 }
 
-.settings {
-    background-image: url("../components/icons/settings.svg");
+.unclaimed {
+    background-image: url("../components/icons/unclaimed.svg");
 }
 
-.logout {
-    background-image: url("../components/icons/logout.svg");
+.trash {
+    background-image: url("../components/icons/trash.svg");
 }
 
 .no-border-bg .btn {
