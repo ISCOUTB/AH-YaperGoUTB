@@ -14,7 +14,7 @@ const filtros_marcados = ref([
 
 <template>
 
-  <div class="container my-5 mx-4 color-text">
+  <div class="container my-5 ms-2 color-text">
     <h3>Filtros</h3>
 
     <div class="form-check form-switch switch-verde">
