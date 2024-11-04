@@ -14,8 +14,8 @@ const filtros_marcados = ref([
 
 <template>
 
-  <div class="container my-4 ms-4 color-text">
-    <h3>Filtros</h3>
+  <div class="container my-4 ms-4 text-start color-text">
+    <h3 class="ms-3">Filtros</h3>
 
     <div class="form-check form-switch switch-verde">
       <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"

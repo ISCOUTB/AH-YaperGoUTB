@@ -3,7 +3,7 @@
 
 
 <template>
-    <div class="continer my-4 ms-4 color-text">
+    <div class="continer my-4 ms-4 text-start color-text">
 
         <div class="btn-group-vertical no-border-bg" role="group" aria-label="Vertical button group">
 

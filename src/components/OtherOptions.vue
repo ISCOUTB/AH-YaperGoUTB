@@ -4,8 +4,8 @@
 
 <template>
 
-    <div class="continer my-3 ms-4 color-text">
-        <h3 class="ms-2">Other</h3>
+    <div class="continer my-3 ms-4 text-start color-text">
+        <h3 class="ms-4">Other</h3>
 
         <div class="btn-group-vertical no-border-bg" role="group" aria-label="Vertical button group">
 

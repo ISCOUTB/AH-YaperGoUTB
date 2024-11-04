@@ -28,7 +28,7 @@ export default {
 <template>
 
     <div>
-        <button type="button" class="open-btn icono-menu" @click="toggleSidebar"></button>
+        <button type="button" class="open-btn icono-menu container-fluid" @click="toggleSidebar"></button>
 
         <div :class="['sidebar', { active: isActive }]">
             <button class="close-btn" @click="toggleSidebar"> </button>

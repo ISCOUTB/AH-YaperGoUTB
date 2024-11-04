@@ -5,12 +5,14 @@ import AccountActions from './components/AccountActions.vue';
 import Filtros from './components/Filtros.vue';
 import OtherOptions from './components/OtherOptions.vue';
 import AdminView from './views/AdminView.vue';
+import Calendar from './components/Calendar.vue';
 </script>
 
 
 <template>
     <AdminView></AdminView>
     <!--
+        <Calendar></Calendar>
     <div class="pss">
             <NavBarLat></NavBarLat>
             <OtherOptions></OtherOptions>
