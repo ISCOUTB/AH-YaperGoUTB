@@ -30,10 +30,6 @@ export default {
     <div>
         <button type="button" class="open-btn icono-menu" @click="toggleSidebar"></button>
 
-        <!--
-            <button type="button" class="btn btn-primary icono help">Help</button>
-            -->
-
         <div :class="['sidebar', { active: isActive }]">
             <button class="close-btn" @click="toggleSidebar"> </button>
             <OtherOptions></OtherOptions>
@@ -44,14 +40,6 @@ export default {
                 <AccountActions></AccountActions>
             </div>
 
-            <!--
-            <ul class="sidebar-options">
-                    <li><a href="#option1">Option 1</a></li>
-                    <li><a href="#option2">Option 2</a></li>
-                    <li><a href="#option3">Option 3</a></li>
-                    <li><a href="#option4">Option 4</a></li>
-                </ul>
-                -->
         </div>
     </div>
 </template>
@@ -83,7 +71,7 @@ export default {
     border: none;
     padding: 20px 25px;
     cursor: pointer;
-    position: fixed;
+    position: relative;
     /*top: 20px;
     left: 20px;*/
     z-index: 1000;
@@ -101,7 +89,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 300px;
     height: 100%;
     background-color: #0050EF;
     color: white;
