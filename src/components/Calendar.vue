@@ -85,9 +85,9 @@ export default {
 
 
         <div class="calendar-header d-flex justify-content-between align-items-center">
-            <button @click="prevMonth" class="btn btn-outline-primary">&lt;</button>
+            <button @click="prevMonth" class="btn btn-outline-primary day-circle btn-calendar">&lt;</button>
             <h3>{{ currentMonthYear }}</h3>
-            <button @click="nextMonth" class="btn btn-outline-primary">&gt;</button>
+            <button @click="nextMonth" class="btn btn-outline-primary day-circle btn-calendar">&gt;</button>
         </div>
         <div class="calendar-grid">
             <div class="day-name" v-for="day in daysOfWeek" :key="day">{{ day }}</div>
@@ -109,6 +109,17 @@ export default {
 
 
 <style scoped>
+.icono-pasa-mes {
+    background-image: url("../components/icons/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    /* Posición del ícono */
+    padding-left: 0px;
+    /* Espacio para que el texto no se sobreponga al ícono */
+    background-size: 30px 30px;
+    /* Tamaño del Icono */
+}
+
 .btn-calendar {
     border: none;
     background: #0050EF;
