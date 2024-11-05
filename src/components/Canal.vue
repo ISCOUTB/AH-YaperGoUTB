@@ -1,3 +1,59 @@
+<script>
+export default {
+    data() {
+        return {
+            searchQuery: "",
+            newMessage: "",
+            messages: [
+                { title: "Lodo", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
+                { title: "Vandolero", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
+                { title: "Bienvenidos al canal de novedades", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: true },
+                { title: "Patioss al canal de novedades", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
+
+
+            ],
+            filteredMessages: [],
+        };
+    },
+    methods: {
+        sendMessage() {
+            if (this.newMessage.trim()) {
+                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const newMsg = {
+                    title: this.newMessage,
+                    time,
+                    img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg",
+                    description: "Nuevo mensaje",
+                    reclamed: false,
+                };
+                this.messages.push(newMsg);
+                this.filteredMessages.push(newMsg);
+                this.newMessage = "";
+                this.scrollToBottom();
+            }
+        },
+
+        scrollToBottom() {
+            this.$nextTick(() => {
+                const chatMessages = this.$refs.chatMessages;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        },
+        filterMessages() {
+            const query = this.searchQuery.toLowerCase();
+            this.filteredMessages = this.messages.filter((msg) =>
+                msg.title.toLowerCase().includes(query) || msg.description.toLowerCase().includes(query)
+            );
+        },
+        toggle(index) {
+            this.messages[index].reclamed = !this.messages[index].reclamed;
+        },
+    },
+
+};
+</script>
+
+
 <template>
     <div class="chat-container">
         <div class="chat-header d-flex align-items-center p-2 justify-content-center">
@@ -5,14 +61,43 @@
                 @input="filterMessages" />
         </div>
 
+
         <div class="chat-messages justify-content-center" ref="chatMessages">
+
             <div v-for="(message, index) in filteredMessages" :key="index" :class="['message-wrapper', 'obj-message']">
                 <div class="message">
-                    <span class="message-text">{{ message.text }}</span>
-                    <span class="message-time">{{ message.time }}</span>
+
+                    <div class="container-fluid">
+                        <div class="row my-2">
+                            <div class="col-9 text-start">
+                                <span class="title-text">{{ message.title }}</span>
+                            </div>
+                            <div class="col-3">
+                                <span class="time-text">{{ message.time }}</span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <img class="img-fluid" :src="message.img" alt="">
+                        </div>
+
+                        <div class="row text-start justify-content-end m-2">
+                            <div class="col-9"><span class="description-text">{{ message.description }}</span></div>
+                            <div class="col-1">
+                                <button @click="toggle(index)" :class="{ active: message.reclamed }" class="toggle">
+                                    <!--{{ isActive ? 'Activo' : 'Inactivo' }}-->
+                                </button>
+                            </div>
+                            <div class="col-2 edit-btn"> </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
+
         </div>
+
 
         <div class="chat-input d-flex p-2 justify-content-center">
             <!--
@@ -25,66 +110,44 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            searchQuery: "",
-            newMessage: "",
-            messages: [
-                { text: "Bienvenidos al canal de novedades", from: "other", time: "10:00 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-                { text: "Hola, ¿alguien tiene dudas?", from: "me", time: "10:10 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-                { text: "Hola, ¿alguien tiene dudas?", from: "me", time: "10:10 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-                { text: "Hola, ¿alguien tiene dudas?", from: "me", time: "10:10 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-                { text: "Hola, ¿alguien tiene dudas?", from: "me", time: "10:10 AM" },
-                { text: "Recuerden revisar las actualizaciones", from: "other", time: "10:05 AM" },
-
-            ],
-            filteredMessages: [],
-        };
-    },
-    methods: {
-        sendMessage() {
-            if (this.newMessage.trim()) {
-                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                const newMsg = {
-                    text: this.newMessage,
-                    from: "me",
-                    time,
-                };
-                this.messages.push(newMsg);
-                this.filteredMessages.push(newMsg);
-                this.newMessage = "";
-                this.scrollToBottom();
-            }
-        },
-        scrollToBottom() {
-            this.$nextTick(() => {
-                const chatMessages = this.$refs.chatMessages;
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            });
-        },
-        filterMessages() {
-            const query = this.searchQuery.toLowerCase();
-            this.filteredMessages = this.messages.filter((msg) =>
-                msg.text.toLowerCase().includes(query)
-            );
-        },
-    },
-    mounted() {
-        this.filteredMessages = this.messages;
-        this.scrollToBottom();
-    },
-};
-</script>
 
 <style scoped>
+.edit-btn {
+    background-image: url("../components/icons/edit-obj.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 45px 45px;
+    /*transform: rotate(90deg);
+     Rota el botón 90 grados */
+    /*position: absolute;
+    top: 3px;
+    right: 10px;
+    background-color: #0050EF;
+    color: white;
+    font-size: 24px;*/
+    border: none;
+    cursor: pointer;
+}
+
+.toggle {
+    border: none;
+    border-radius: 50%;
+    padding: 23px 23px;
+}
+
+.toggle.active {
+    background-color: #14ff00;
+    /* Verde si está reclamado */
+    border: 2px solid white;
+}
+
+.toggle:not(.active) {
+    background-color: #c70707;
+    /* Rojo si NO está reclamado */
+    border: 2px solid black;
+
+}
+
 .addObject {
     background-image: url("../components/icons/add-object.svg");
     background-repeat: no-repeat;
@@ -97,10 +160,10 @@ export default {
 }
 
 .chat-container {
-  width: 100%;
-  height: 62%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -110,7 +173,8 @@ export default {
     /*border-top-left-radius: 8px;
       border-top-right-radius: 8px;*/
     border-bottom: 1px solid #c5c5c5;
-    flex-shrink: 0; /* Prevent these sections from shrinking */
+    flex-shrink: 0;
+    /* Prevent these sections from shrinking */
 
 }
 
@@ -125,7 +189,7 @@ export default {
 .chat-messages {
     flex: 1;
     overflow-y: auto;
-    /*padding: 10px 30px;*/
+    padding: 10px 30px;
     background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
@@ -135,13 +199,16 @@ export default {
 .message-wrapper {
     display: flex;
     margin-bottom: 8px;
-    flex-direction: column; /* Ensure messages stack vertically */
-    align-items: center; /* Align messages to the left by default */
+    flex-direction: column;
+    /* Ensure messages stack vertically */
+    align-items: center;
+    /* Align messages to the left by default */
 }
 
 .my-message {
     justify-content: flex-end;
-    align-items: flex-end; /* Align "my" messages to the right */
+    align-items: flex-end;
+    /* Align "my" messages to the right */
 }
 
 .other-message {
@@ -172,12 +239,18 @@ export default {
 }
 */
 
-.message-text {
-    display: block;
+.title-text {
+    /*display: block;*/
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.description-text {
+    /*display: block;*/
     font-size: 0.9rem;
 }
 
-.message-time {
+.time-text {
     font-size: 0.7rem;
     color: black;
     text-align: right;

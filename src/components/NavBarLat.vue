@@ -47,10 +47,10 @@ export default {
 
 <style scoped>
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .icono-menu {
