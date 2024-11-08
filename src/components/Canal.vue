@@ -49,6 +49,10 @@ export default {
             this.messages[index].reclamed = !this.messages[index].reclamed;
         },
     },
+    mounted() {
+    this.filteredMessages = this.messages;
+    this.scrollToBottom();
+  },
 
 };
 </script>
@@ -58,11 +62,11 @@ export default {
     <div class="chat-container">
         <div class="chat-header d-flex align-items-center p-2 justify-content-center">
             <input type="text" class="form-control search-bar" placeholder="Search Object..." v-model="searchQuery"
-                @input="filterMessages" />
+                @keyup="filterMessages" />
         </div>
 
 
-        <div class="chat-messages justify-content-center" ref="chatMessages">
+        <div class="chat-messages" ref="chatMessages">
 
             <div v-for="(message, index) in filteredMessages" :key="index" :class="['message-wrapper', 'obj-message']">
                 <div class="message">
@@ -173,7 +177,7 @@ export default {
     /*border-top-left-radius: 8px;
       border-top-right-radius: 8px;*/
     border-bottom: 1px solid #c5c5c5;
-    flex-shrink: 0;
+    /*flex-shrink: 0;
     /* Prevent these sections from shrinking */
 
 }

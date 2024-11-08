@@ -2,17 +2,17 @@
 import NavBarLat from '@/components/NavBarLat.vue';
 import Calendar from '@/components/Calendar.vue';
 import Canal from '@/components/Canal.vue';
-import Peee from '@/components/peee.vue';
+import Peee from '@/components/Peee.vue';
 </script>
 
 <template>
   <div class="container-fluid text-center m-0 p-0 main-container">
     <div class="row m-0 p-0 h-100">
-      <div class="col-1 m-0 p-0 sidebar" style="background-color: #0050EF;">
+      <div class="col-auto m-0 p-0 sidebar" style="background-color: #0050EF;">
         <NavBarLat></NavBarLat>
       </div>
 
-      <div class="col-11 bg-danger m-0 p-0">
+      <div class="col bg-danger m-0 p-0">
         <div class="row m-0 p-0" style="background-color: #2EA1DA;">
           <div class="position-relative">
             <img class="logo top-0 start-50" src="../img/LOGO.png" alt="">
