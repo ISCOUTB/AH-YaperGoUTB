@@ -1,9 +1,14 @@
 <script>
+// axios instance
+import axios from 'axios';
+
+
 export default {
     data() {
         return {
             searchQuery: "",
             newMessage: "",
+            pru: [],
             messages: [
                 { title: "Lodo", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
                 { title: "Vandolero", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
@@ -49,10 +54,25 @@ export default {
             this.messages[index].reclamed = !this.messages[index].reclamed;
         },
     },
+
+    created() {
+        console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL); // Verifica la URL base
+        let url = `${import.meta.env.VITE_API_BASE_URL}/objects/`;
+        // Llamada a la API cuando el componente se crea
+        axios.get(url)
+            .then(response => {
+                this.pru = response.data;  // Almacena los datos obtenidos en la propiedad 'data'
+                console.log(this.pru); ////// CAMBIAR /////////
+            })
+            .catch(error => {
+                console.error('Hubo un error:', error);
+            });
+
+    },
     mounted() {
-    this.filteredMessages = this.messages;
-    this.scrollToBottom();
-  },
+        this.filteredMessages = this.messages;
+        this.scrollToBottom();
+    },
 
 };
 </script>
@@ -74,10 +94,10 @@ export default {
                     <div class="container-fluid">
                         <div class="row my-2">
                             <div class="col-9 text-start">
-                                <span class="title-text">{{ message.title }}</span>
+                                <span class="title-text">{{ message.Obj_Name }}</span>
                             </div>
                             <div class="col-3">
-                                <span class="time-text">{{ message.time }}</span>
+                                <span class="time-text">{{ message.Found_Date }}</span>
                             </div>
                         </div>
 
@@ -89,7 +109,9 @@ export default {
                             <div class="col-9"><span class="description-text">{{ message.description }}</span></div>
                             <div class="col-1">
                                 <button @click="toggle(index)" :class="{ active: message.reclamed }" class="toggle">
-                                    <!--{{ isActive ? 'Activo' : 'Inactivo' }}-->
+                                    <!--s
+                                    {{ isActive ? 'Activo' : 'Inactivo' }}
+                                     -->
                                 </button>
                             </div>
                             <div class="col-2 edit-btn"> </div>

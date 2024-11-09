@@ -2,7 +2,6 @@
 import NavBarLat from '@/components/NavBarLat.vue';
 import Calendar from '@/components/Calendar.vue';
 import Canal from '@/components/Canal.vue';
-import Peee from '@/components/Peee.vue';
 </script>
 
 <template>
