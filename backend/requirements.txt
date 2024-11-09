@@ -3,3 +3,4 @@ uvicorn
 sqlalchemy
 MySQL
 mysql-connector-python-rf
+pymysql

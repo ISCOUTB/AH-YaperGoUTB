@@ -1,4 +1,5 @@
-from sqlalchemy import String, Integer, Column
+from sqlalchemy import String, Integer, Column, DateTime
+from sqlalchemy.ext.declarative import declarative_base
 from database import Base
 
 class UserAdmin(Base):
@@ -8,4 +9,19 @@ class UserAdmin(Base):
     Last_Name = Column(String(50))
     Email = Column(String(50))
     Number_Phone = Column(Integer)
+    
+class LostObject(Base):
+    __tablename__ = 'object'
+    Obj_ID = Column(Integer, primary_key=True, index=True)
+    Obj_Name = Column(String(50))
+    Obj_Description = Column(String(150))
+    Student_ID = Column(Integer)
+    Number_Phone = Column(Integer)
+    Tag_ID = Column(Integer)
+    Found_Date = Column(DateTime)
+    Reclamed_Date = Column(DateTime)
+    Sector_ID = Column(Integer)
+    Found_Description = Column(String(50))
+    Admin_ID = Column(Integer)
+    URL_Img = Column(String(100))
     

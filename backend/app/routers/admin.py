@@ -28,7 +28,12 @@ def show_admins(db:Session=Depends(get_db)):
 @router.post('/admin/', response_model=esquemas.UserAdmin)
 
 def create_admins(entrada:esquemas.UserAdmin, db:Session=Depends(get_db)):
-    admin = models.UserAdmin(Name=entrada.Name, Last_Name=entrada.Last_Name, Email=entrada.Email, Number_Phone=entrada.Number_Phone)
+    admin = models.UserAdmin(
+        Name=entrada.Name,
+        Last_Name=entrada.Last_Name,
+        Email=entrada.Email,
+        Number_Phone=entrada.Number_Phone
+        )
     db.add(admin)
     db.commit()
     db.refresh(admin)

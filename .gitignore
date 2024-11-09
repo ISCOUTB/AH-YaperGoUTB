@@ -31,6 +31,6 @@ coverage
 
 #Carpetas
 scannerwork/
-backend/my-venv/
-backend/__pycache__/
-backend/routers/__pycache__/
+backend/app/my-venv/
+backend/app/__pycache__/
+backend/app/routers/__pycache__/
