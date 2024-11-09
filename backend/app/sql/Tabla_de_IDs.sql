@@ -53,22 +53,4 @@ VALUES
 ('Calculadora'),
 ('Campera'),
 ('Paraguas');
-USE DB;
-INSERT INTO `Sectors` (`Sector_ID`, `Sector_Name`)
-VALUES
-(1, 'Edificio Principal'),
-(2, 'Cafetería'),
-(3, 'Biblioteca'),
-(4, 'Auditorio'),
-(5, 'Salón de Clases B-203'),
-(6, 'Gimnasio'),
-(7, 'Baños del Edificio A'),
-(8, 'Laboratorio'),
-(9, 'Estacionamiento'),
-(10, 'Sala de Estudios');
-INSERT INTO `Admin` (`Name`, `Last_Name`, `Email`, `Number_Phone`)
-VALUES 
-('Juan', 'Perez', 'juan.perez@university.edu', '+1234567890');
-INSERT INTO `Admin` (`Name`, `Last_Name`, `Email`, `Number_Phone`)
-VALUES 
-('Juan', 'Perez', 'juan.perez@university.edu', '+1234567890');
+

@@ -35,7 +35,6 @@ def create_objects(entrada: esquemas.LostObject, db: Session = Depends(get_db)):
             Obj_Name=entrada.Obj_Name,
             Obj_Description=entrada.Obj_Description,
             Student_ID=entrada.Student_ID,
-            Number_Phone=entrada.Number_Phone,
             Tag_ID=entrada.Tag_ID,
             Found_Date=entrada.Found_Date,
             Reclamed_Date=entrada.Reclamed_Date,

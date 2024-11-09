@@ -11,12 +11,11 @@ class UserAdmin(Base):
     Number_Phone = Column(Integer)
     
 class LostObject(Base):
-    __tablename__ = 'object'
+    __tablename__ = 'objects'
     Obj_ID = Column(Integer, primary_key=True, index=True)
     Obj_Name = Column(String(50))
     Obj_Description = Column(String(150))
     Student_ID = Column(Integer)
-    Number_Phone = Column(Integer)
     Tag_ID = Column(Integer)
     Found_Date = Column(DateTime)
     Reclamed_Date = Column(DateTime)
