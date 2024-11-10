@@ -8,20 +8,18 @@ export default {
         return {
             searchQuery: "",
             newMessage: "",
-            pru: [],
             messages: [
-                { title: "Lodo", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
+                /*{ title: "Lodo", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
                 { title: "Vandolero", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
                 { title: "Bienvenidos al canal de novedades", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: true },
-                { title: "Patioss al canal de novedades", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },
-
+                { title: "Patioss al canal de novedades", time: "10:00 AM", img: "https://www.adslzone.net/app/uploads-adslzone.net/2019/04/borrar-fondo-imagen-1.jpg", description: "blablabla", reclamed: false },*/
 
             ],
             filteredMessages: [],
         };
     },
     methods: {
-        sendMessage() {
+        /*sendMessage() {
             if (this.newMessage.trim()) {
                 const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const newMsg = {
@@ -37,6 +35,7 @@ export default {
                 this.scrollToBottom();
             }
         },
+        */
 
         scrollToBottom() {
             this.$nextTick(() => {
@@ -47,7 +46,7 @@ export default {
         filterMessages() {
             const query = this.searchQuery.toLowerCase();
             this.filteredMessages = this.messages.filter((msg) =>
-                msg.title.toLowerCase().includes(query) || msg.description.toLowerCase().includes(query)
+                msg.Obj_Name.toLowerCase().includes(query) || msg.Obj_Description.toLowerCase().includes(query)
             );
         },
         toggle(index) {
@@ -61,8 +60,9 @@ export default {
         // Llamada a la API cuando el componente se crea
         axios.get(url)
             .then(response => {
-                this.pru = response.data;  // Almacena los datos obtenidos en la propiedad 'data'
-                console.log(this.pru); ////// CAMBIAR /////////
+                this.messages = response.data;  // Almacena los datos obtenidos en la propiedad 'data'
+                console.log(this.messages);
+                this.filteredMessages = this.messages;
             })
             .catch(error => {
                 console.error('Hubo un error:', error);
@@ -70,7 +70,7 @@ export default {
 
     },
     mounted() {
-        this.filteredMessages = this.messages;
+        //this.filteredMessages = this.messages;
         this.scrollToBottom();
     },
 
@@ -102,11 +102,11 @@ export default {
                         </div>
 
                         <div class="row justify-content-center">
-                            <img class="img-fluid" :src="message.img" alt="">
+                            <img class="img-fluid" :src="message.URL_Img" alt="">
                         </div>
 
                         <div class="row text-start justify-content-end m-2">
-                            <div class="col-9"><span class="description-text">{{ message.description }}</span></div>
+                            <div class="col-9"><span class="description-text">{{ message.Obj_Description }}</span></div>
                             <div class="col-1">
                                 <button @click="toggle(index)" :class="{ active: message.reclamed }" class="toggle">
                                     <!--s
