@@ -11,7 +11,8 @@ CREATE TABLE `Admin` (
   `Admin_ID` INT AUTO_INCREMENT,
   `Name` VARCHAR(50),  
   `Last_Name` VARCHAR(50),  
-  `Email` VARCHAR(50),  
+  `Email` VARCHAR(50),
+  `Password` VARCHAR(50),
   `Number_Phone` VARCHAR(15),  -- Este tamaño para permitir códigos de país  
   PRIMARY KEY (`Admin_ID`)
 );  

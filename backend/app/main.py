@@ -8,6 +8,7 @@ from starlette.middleware.cors import CORSMiddleware
 #Routers
 from routers.admin import router as admin_router
 from routers.objects import router as objects_router
+from routers.valid_user import router as valid_user_router
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -38,3 +39,4 @@ def main():
 
 app.include_router(admin_router)
 app.include_router(objects_router)
+app.include_router(valid_user_router)

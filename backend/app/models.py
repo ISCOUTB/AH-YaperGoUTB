@@ -8,6 +8,7 @@ class UserAdmin(Base):
     Name = Column(String(50))
     Last_Name = Column(String(50))
     Email = Column(String(50))
+    Password = Column(String(50))
     Number_Phone = Column(Integer)
     
 class LostObject(Base):
@@ -23,4 +24,6 @@ class LostObject(Base):
     Found_Description = Column(String(50))
     Admin_ID = Column(Integer)
     URL_Img = Column(String(100))
+    
+
     

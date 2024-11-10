@@ -7,23 +7,24 @@ class UserAdmin(BaseModel):
     Name: str
     Last_Name: str
     Email: str
+    Password: str
     Number_Phone: int
     
     class Config:
         orm_mode = True
 
-
+#Actualización de datos de Admin
 class UserAdminUpdate(BaseModel):
     Name: str
   
     class Config:
         orm_mode = True
 
-
-class Respuesta(BaseModel):
-    message: str
+#Validación de Usario Admin
+class ValidUserAdmin(BaseModel):
+    Valid: bool
     
-    
+  
 class LostObject(BaseModel):
     Obj_ID: Optional[int] = None
     Obj_Name:str
@@ -39,3 +40,10 @@ class LostObject(BaseModel):
     
     class Config:
         orm_mode = True
+
+
+
+
+#Respuesta...
+class Respuesta(BaseModel):
+    message: str

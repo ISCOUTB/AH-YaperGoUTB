@@ -1,8 +1,8 @@
 USE DB;
 
-INSERT INTO `Admin` (`Name`, `Last_Name`, `Email`, `Number_Phone`)
+INSERT INTO `Admin` (`Name`, `Last_Name`, `Email`, `Password`, `Number_Phone`)
 VALUES 
-('Juan', 'Perez', 'juan.perez@university.edu', '+1234567890');
+('Juan', 'Perez', 'juan.perez@university.edu', '12345', '+1234567890');
 
 INSERT INTO `Sectors` (`Sector_ID`, `Sector_Name`)
 VALUES
