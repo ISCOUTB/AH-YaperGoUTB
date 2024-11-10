@@ -1,15 +1,20 @@
 <script>
 import { ref } from 'vue'
 import axios from 'axios';
+import { useValidFromStore } from '@/stores/validFormStore';
 //const msg = ref('YapperGO')
 
 export default {
   setup() {
+    const validFormStore = useValidFromStore();
     const correo = ref('');
     const contraseña = ref('');
   },
   data() {
     return {
+      correo: ref(''),
+      contraseña: ref(''),
+      validFormStore: useValidFromStore(),
 
       sessionActive: false,
     };
@@ -24,18 +29,22 @@ export default {
         .then(response => {
           this.sessionActive = response.data;
           console.log("Sessión Activa: ", this.sessionActive);
+          this.validFormStore.validarForm(this.correo, this.contraseña, this.sessionActive);
+
+          if (response.data.Valid) {
+            this.correo = '';
+            this.contraseña = '';
+          } 
+          else {
+            alert('Ususario o Contraseña no válido')
+          }
         })
         .catch(error => {
           console.error('Hubo un error:', error);
           alert('Ususario No encontrado en la base de datos')
         });
-        if(this.sessionActive) {
-          this.correo = '';
-          this.contraseña = '';
-        } else {
-          alert('Ususario o Contraseña no válido')
 
-        }
+
     },
   },
 };
