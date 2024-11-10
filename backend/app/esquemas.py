@@ -29,7 +29,6 @@ class LostObject(BaseModel):
     Obj_Name:str
     Obj_Description:str
     Student_ID:int
-    Number_Phone:int
     Tag_ID:int
     Found_Date:Optional[datetime] = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
     Reclamed_Date:Optional[datetime] = None
