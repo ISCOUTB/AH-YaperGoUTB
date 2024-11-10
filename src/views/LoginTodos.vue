@@ -1,12 +1,12 @@
 <script>
 import { ref } from 'vue'
 import axios from 'axios';
-import { useValidFromStore } from '@/stores/validFormStore';
+import { useValidFormStore } from '@/stores/validFormStore';
 //const msg = ref('YapperGO')
 
 export default {
   setup() {
-    const validFormStore = useValidFromStore();
+    const validFormStore = useValidFormStore();
     const correo = ref('');
     const contraseña = ref('');
   },
@@ -14,7 +14,7 @@ export default {
     return {
       correo: ref(''),
       contraseña: ref(''),
-      validFormStore: useValidFromStore(),
+      validFormStore: useValidFormStore(),
 
       sessionActive: false,
     };

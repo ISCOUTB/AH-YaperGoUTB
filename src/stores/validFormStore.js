@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import { ref } from "vue";
 
-export const useValidFromStore = defineStore('validFrom', () => {
+export const useValidFormStore = defineStore('validFrom', () => {
     const correo = ref('');
     const contraseña = ref('');
     const sessionActive = ref('');
