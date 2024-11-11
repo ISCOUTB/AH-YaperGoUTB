@@ -4,7 +4,7 @@ import LoginTodos from './views/LoginTodos.vue';
 import AdminView from './views/AdminView.vue';
 
 import { useValidFormStore } from './stores/validFormStore';
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 //Importamos las variables de estado
 const validFormStore = useValidFormStore();
@@ -24,6 +24,12 @@ watch(() => validFormStore.contraseña, (newValue) => {
 watch(() => validFormStore.sessionActive, (newValue) => {
     sessionActive.value = newValue;
 });
+
+onMounted(() => {
+    sessionActive.value=false;
+    console.log("Sesión: ", sessionActive.value);
+});
+
 </script>
 
 

@@ -5,11 +5,6 @@ import { useValidFormStore } from '@/stores/validFormStore';
 //const msg = ref('YapperGO')
 
 export default {
-  setup() {
-    const validFormStore = useValidFormStore();
-    const correo = ref('');
-    const contraseña = ref('');
-  },
   data() {
     return {
       correo: ref(''),

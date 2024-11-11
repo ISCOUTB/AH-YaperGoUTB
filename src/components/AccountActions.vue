@@ -1,4 +1,28 @@
-<script setup>
+<script>
+import { useValidFormStore } from '@/stores/validFormStore';
+import { ref, watch } from 'vue';
+
+
+export default {
+    data() {
+    return {
+      correo: ref(''),
+      contraseña: ref(''),
+      validFormStore: useValidFormStore(),
+
+      sessionActive: false,
+    };
+  },
+
+    methods: {
+        closeSession() {
+              this.sessionActive = false;
+              console.log("Sessión Desactivada.");
+              this.validFormStore.validarForm('', '', this.sessionActive);
+        },
+    },
+};
+
 </script>
 
 
@@ -9,7 +33,7 @@
 
             <button type="button" class="btn btn-primary icono help">Help</button>
             <button type="button" class="btn btn-primary icono settings">Settings</button>
-            <button type="button" class="btn btn-primary icono logout">Log out</button>
+            <button type="button" class="btn btn-primary icono logout" @click="closeSession">Log out</button>
 
         </div>
     </div>
