@@ -71,7 +71,7 @@ VALUES
 (9, 'Estacionamiento'),
 (10, 'Sala de Estudios');
 
-
+USE DB;
 INSERT INTO `Students` (`Name`, `Last_Name`, `Email`)
 VALUES
 ('Carlos', 'Gomez', 'carlos.gomez@university.edu'),
@@ -108,8 +108,7 @@ VALUES
 ('Campera'),
 ('Paraguas');
 
-USE DB;
---INSERCIÓN DE OBJETOS
+-- INSERCIÓN DE OBJETOS
 USE DB;
 
 INSERT INTO `Objects` (`Obj_Name`, `Obj_Description`, `Student_ID`, `Tag_ID`, `Found_Date`, `Reclamed_Date`, `Sector_ID`, `Found_Description`, `Admin_ID`, `URL_Img`)
