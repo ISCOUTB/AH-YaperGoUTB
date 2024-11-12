@@ -1,4 +1,9 @@
 .dockerignore
-Dockerfile
-node_modules
+#node_modules
 .vscode
+
+.scannerwork/
+sonar-scanner-6.2.1.4610-windows-x64/
+backend/app/my-venv/
+backend/app/__pycache__/
+backend/app/routers/__pycache__/

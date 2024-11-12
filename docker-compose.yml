@@ -1,50 +1,65 @@
 services:
-#APP WEB
+  #APP WEB
   vue:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: ah-yapergo_web
     ports:
       - "9025:8080"
-    command: sh -c "http-server dist" 
+    command: sh -c "http-server dist"
     environment:
-      - VITE_API_BASE_URL=http://api:8000 
+      - VITE_API_BASE_URL=http://yapergo_api:8000
+    volumes:
+      - ./frontend:/app  # Volumen solo para la aplicación web
     networks:
       - ag
 
-#BASE DE DATOS
+  #BASE DE DATOS
   db:
+    #Cambiar usuario y contraseña //Implementar ejecución de scripts
     image: mysql:latest
     container_name: ah-yapergo_db
     environment:
       MYSQL_ROOT_PASSWORD: admin1234
       MYSQL_DATABASE: DB
-      MYSQL_USER: root
+      MYSQL_USER: admin
       MYSQL_PASSWORD: admin1234
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./backend/app/sql:/docker-entrypoint-initdb.d
     ports:
       - "3315:3306"
     networks:
       - ag
 
   api:
-    build: ./backend/app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: ah-yapergo_api
+    environment:
+      - URL_DATABASE=mysql+pymysql://admin:admin1234@localhost:3306/DB #cambiar ruta de la base de datos
     ports:
-      - "8025:5000"
+      - "8025:8000"
     volumes:
-      - .:/code
-    command: python app.py
-  
+      - ./backend:/app
+    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
+    networks:
+      - ag
+
   adminer:
     image: adminer
     ports:
       - "8081:8080"
+    depends_on:
+      - db
+    networks:
+      - ag
 
 volumes:
   mysql_data:
+
 
 networks:
   ag:

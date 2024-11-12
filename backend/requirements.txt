@@ -1,7 +1,8 @@
-fastapi[all]
-uvicorn
-sqlalchemy
-MySQL
-mysql-connector-python-rf
-pymysql
-cryptography
+fastapi[all]==0.115.4
+uvicorn==0.32.0
+sqlalchemy==2.0.36
+mysql-connector-python-rf==2.2.2
+pymysql==1.1.1
+cryptography==43.0.3
+python-dotenv==1.0.1
+mysqlclient==2.2.5  # Ajusta la versión según sea necesario
