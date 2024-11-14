@@ -1,6 +1,9 @@
 .dockerignore
-#node_modules
+frontend/node_modules
 .vscode
+
+frontend/dockerfile
+backend/dockerfile
 
 .scannerwork/
 sonar-scanner-6.2.1.4610-windows-x64/

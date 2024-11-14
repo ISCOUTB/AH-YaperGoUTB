@@ -1,19 +1,4 @@
 services:
-  #APP WEB
-  vue:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ah-yapergo_web
-    ports:
-      - "9025:8080"
-    command: sh -c "http-server dist"
-    environment:
-      - VITE_API_BASE_URL=http://yapergo_api:8000
-    volumes:
-      - ./frontend:/app  # Volumen solo para la aplicación web
-    networks:
-      - ag
 
   #BASE DE DATOS
   db:
@@ -33,29 +18,53 @@ services:
     networks:
       - ag
 
+  #APP WEB - VUE
+  vue:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+    container_name: ah-yapergo_web
+    ports:
+      - "9025:80"
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+
+    volumes:
+      - ./frontend:/app # Volumen solo para la aplicación web
+    #command: sh -c "http-server dist"
+    networks:
+      - ag
+
+  #API - FASTAPI
   api:
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: ah-yapergo_api
-    environment:
-      - URL_DATABASE=mysql+pymysql://admin:admin1234@localhost:3306/DB #cambiar ruta de la base de datos
     ports:
       - "8025:8000"
+    depends_on:
+      - db
+    environment:
+      - URL_DATABASE=mysql+pymysql://admin:admin1234@db:3306/DB #cambiar ruta de la base de datos
     volumes:
       - ./backend:/app
-    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
+#    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
+    command: ["./wait-for-it.sh", "db:3306", "--", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
     networks:
       - ag
 
-  adminer:
-    image: adminer
-    ports:
-      - "8081:8080"
-    depends_on:
-      - db
-    networks:
-      - ag
+  #ADMINER
+ # adminer:
+ #   image: adminer
+ #   ports:
+ #     - "8081:8080"
+ #   depends_on:
+ #     - db
+ #   networks:
+ #     - ag
 
 volumes:
   mysql_data:
@@ -63,4 +72,5 @@ volumes:
 
 networks:
   ag:
+    driver: bridge
     external: true

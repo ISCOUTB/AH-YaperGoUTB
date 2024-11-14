@@ -12,5 +12,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  // Configuración para el modo de historia y el subdirectorio de producción
+  base: '/',
 })

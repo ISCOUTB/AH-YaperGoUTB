@@ -8,9 +8,15 @@ import os
 # Carga las variables de entorno desde el archivo .env
 load_dotenv()
 
-# Accede a la variable URL_DATABASE
-url_database = os.getenv("URL_DATABASE")
+# Leer la variable de entorno
+DATABASE_URL = os.getenv("URL_DATABASE")
 
-engine = create_engine(url_database)
+if DATABASE_URL is None:
+    raise ValueError("La URL de la base de datos no está definida en las variables de entorno.")
+
+# Accede a la variable URL_DATABASE
+#url_database = os.getenv("URL_DATABASE")
+
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
