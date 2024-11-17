@@ -6,6 +6,7 @@ services:
     image: mysql:latest
     container_name: ah-yapergo_db
     environment:
+      MYSQL_ROOT_USER:  root
       MYSQL_ROOT_PASSWORD: admin1234
       MYSQL_DATABASE: DB
       MYSQL_USER: admin
@@ -42,13 +43,16 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      args:
+      - URL_DATABASE=${URL_DATABASE}
     container_name: ah-yapergo_api
     ports:
       - "8025:8000"
     depends_on:
       - db
     environment:
-      - URL_DATABASE=mysql+pymysql://admin:admin1234@db:3306/DB #cambiar ruta de la base de datos
+      - URL_DATABASE=${URL_DATABASE} #cambiar ruta de la base de datos
+      #- URL_DATABASE=mysql+pymysql://admin:admin1234@db:3306/DB #cambiar ruta de la base de datos
     volumes:
       - ./backend:/app
 #    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
@@ -57,14 +61,14 @@ services:
       - ag
 
   #ADMINER
- # adminer:
- #   image: adminer
- #   ports:
- #     - "8081:8080"
- #   depends_on:
- #     - db
- #   networks:
- #     - ag
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    networks:
+      - ag
 
 volumes:
   mysql_data:
@@ -72,5 +76,5 @@ volumes:
 
 networks:
   ag:
-    driver: bridge
+    #driver: bridge
     external: true

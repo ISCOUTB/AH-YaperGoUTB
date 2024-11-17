@@ -52,7 +52,6 @@ CREATE TABLE `Objects` (
 );  
 
 
-USE DB;
 -- INSERCION DE DATOS EN TABLAS SECUNDARIAS
 INSERT INTO `Admin` (`Name`, `Last_Name`, `Email`, `Password`, `Number_Phone`)
 VALUES 
@@ -109,8 +108,6 @@ VALUES
 ('Paraguas');
 
 -- INSERCIÓN DE OBJETOS
-USE DB;
-
 INSERT INTO `Objects` (`Obj_Name`, `Obj_Description`, `Student_ID`, `Tag_ID`, `Found_Date`, `Reclamed_Date`, `Sector_ID`, `Found_Description`, `Admin_ID`, `URL_Img`)
 VALUES 
 ('Llaves', 'Un llavero con varias llaves de casa y oficina', 1, 1, '2023-01-10 10:30:00', NULL, 1, 'Encontrado en el edificio principal', 1, 'https://thumbs.dreamstime.com/z/varias-llaves-en-un-llavero-del-metal-113815579.jpg?ct=jpeg'),

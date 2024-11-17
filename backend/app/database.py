@@ -16,6 +16,7 @@ if DATABASE_URL is None:
 
 # Accede a la variable URL_DATABASE
 #url_database = os.getenv("URL_DATABASE")
+print(f"BASE DE DATOS::: {DATABASE_URL}")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
