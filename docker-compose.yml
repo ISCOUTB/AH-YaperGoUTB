@@ -1,11 +1,10 @@
 services:
-
   #BASE DE DATOS
   db:
-    #Cambiar usuario y contraseña //Implementar ejecución de scripts
     image: mysql:latest
     container_name: ah-yapergo_db
     environment:
+    #Cambiar usuarios y contraseñas (estás últimas desde el .env)
       #Nombre de la base de datos
       MYSQL_DATABASE: DB
       #Usuario Root
@@ -37,7 +36,6 @@ services:
 
     volumes:
       - ./frontend:/app # Volumen solo para la aplicación web
-    #command: sh -c "http-server dist"
     networks:
       - ag
 
@@ -55,10 +53,8 @@ services:
       - db
     environment:
       - URL_DATABASE=${URL_DATABASE} #cambiar ruta de la base de datos
-      #- URL_DATABASE=mysql+pymysql://admin:admin1234@db:3306/DB #cambiar ruta de la base de datos
     volumes:
       - ./backend:/app
-#    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
     command: ["./wait-for-it.sh", "db:3306", "--", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
     networks:
       - ag
@@ -76,8 +72,6 @@ services:
 volumes:
   mysql_data:
 
-
 networks:
   ag:
-    #driver: bridge
     external: true
