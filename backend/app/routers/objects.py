@@ -21,6 +21,7 @@ def get_db():
 @router.get('/objects/', response_model=List[esquemas.LostObject])
 
 def show_objects(db:Session=Depends(get_db)):
+    #cambiar nombre de la variable aqui*
     object = db.query(models.LostObject).all()
     return object
 

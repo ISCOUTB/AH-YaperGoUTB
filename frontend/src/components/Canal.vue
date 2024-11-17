@@ -109,9 +109,6 @@ export default {
                             <div class="col-9"><span class="description-text">{{ message.Obj_Description }}</span></div>
                             <div class="col-1">
                                 <button @click="toggle(index)" :class="{ active: message.reclamed }" class="toggle">
-                                    <!--s
-                                    {{ isActive ? 'Activo' : 'Inactivo' }}
-                                     -->
                                 </button>
                             </div>
                             <div class="col-2 edit-btn"> </div>
@@ -126,11 +123,6 @@ export default {
 
 
         <div class="chat-input d-flex p-2 justify-content-center">
-            <!--
-                  <input v-model="newMessage" @keyup.enter="sendMessage" type="text" placeholder="Escribe un mensaje..."
-                  class="form-control me-2" />
-                  <button @click="sendMessage" class="btn btn-primary alaing-content-center">Enviar</button>
-                  -->
             <button type="button" class="btn addObject" style="color: #8f9bb3;">Add Object</button>
         </div>
     </div>
@@ -143,14 +135,6 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 45px 45px;
-    /*transform: rotate(90deg);
-     Rota el botón 90 grados */
-    /*position: absolute;
-    top: 3px;
-    right: 10px;
-    background-color: #0050EF;
-    color: white;
-    font-size: 24px;*/
     border: none;
     cursor: pointer;
 }
@@ -196,11 +180,7 @@ export default {
 .chat-header {
     padding: 8px;
     background-color: #f0f0f0;
-    /*border-top-left-radius: 8px;
-      border-top-right-radius: 8px;*/
     border-bottom: 1px solid #c5c5c5;
-    /*flex-shrink: 0;
-    /* Prevent these sections from shrinking */
 
 }
 
@@ -234,7 +214,6 @@ export default {
 .my-message {
     justify-content: flex-end;
     align-items: flex-end;
-    /* Align "my" messages to the right */
 }
 
 .other-message {
@@ -253,26 +232,12 @@ export default {
     border-top-left-radius: 0;
 }
 
-/*
-.my-message .message {
-    background-color: #dcf8c6;
-    border-bottom-right-radius: 0;
-}
-
-.other-message .message {
-    background-color: #ffffff;
-    border-bottom-left-radius: 0;
-}
-*/
-
 .title-text {
-    /*display: block;*/
     font-size: 0.9rem;
     font-weight: bold;
 }
 
 .description-text {
-    /*display: block;*/
     font-size: 0.9rem;
 }
 
@@ -283,12 +248,4 @@ export default {
     margin-top: 4px;
 }
 
-/*
-.chat-input {
-    border-top: 1px solid #ddd;
-    background-color: #f9f9f9;
-    flex-shrink: 0; /* Prevent these sections from shrinking 
-
-}
-*/
 </style>

@@ -75,14 +75,7 @@ export default {
               <input type="password" class="form-control" id="inputPass" placeholder="Escribe tu contraseña" required
                 v-model="contraseña" style="border-radius: 50px;">
             </div>
-
-            <!--checkbox
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="checkbox" id="terms" required>
-              <label for="terms" class="form-check-label">Aceptar los términos</label>
-            </div>
-            -->
-
+            
             <!--botón de login-->
             <button type="submit" class="btn btn-primary w-100" @click.prevent="sendForm">Login</button>
           </form>

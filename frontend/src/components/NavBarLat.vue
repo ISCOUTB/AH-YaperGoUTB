@@ -72,12 +72,9 @@ export default {
     padding: 20px 25px;
     cursor: pointer;
     position: relative;
-    /*top: 20px;
-    left: 20px;*/
     z-index: 1000;
     width: 40;
     height: 40;
-    /*transition: transform 0.1s ease, background-color 0.3s ease;*/
 }
 
 .open-btn:active {

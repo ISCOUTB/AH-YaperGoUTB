@@ -1,5 +1,5 @@
 # Utiliza una imagen base de Python con una versión adecuada y paquetes de desarrollo
-FROM python:latest
+FROM python:3.12
 # Establece el directorio de trabajo dentro del contenedor
 RUN mkdir /backend
 WORKDIR /backend

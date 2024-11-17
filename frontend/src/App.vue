@@ -1,8 +1,5 @@
 <script setup>
 //Importaciones
-import LoginTodos from './views/LoginTodos.vue';
-import AdminView from './views/AdminView.vue';
-
 import { useValidFormStore } from './stores/validFormStore';
 import { onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -41,13 +38,8 @@ onMounted(() => {
 
 
 <template>
-    
+    <!--Aqui se renderiza la aplicación -->
     <router-view></router-view>
-    <!--
-        <AdminView v-if="sessionActive"></AdminView>
-        <LoginTodos v-else></LoginTodos>
-        -->
-        
 </template>
 
 
