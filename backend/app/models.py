@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from database import Base
 
 class UserAdmin(Base):
-    __tablename__ = 'admin'
+    __tablename__ = 'Admin'
     Admin_ID = Column(Integer, primary_key=True, index=True)
     Name = Column(String(50))
     Last_Name = Column(String(50))
@@ -12,7 +12,7 @@ class UserAdmin(Base):
     Number_Phone = Column(Integer)
     
 class LostObject(Base):
-    __tablename__ = 'objects'
+    __tablename__ = 'Objects'
     Obj_ID = Column(Integer, primary_key=True, index=True)
     Obj_Name = Column(String(50))
     Obj_Description = Column(String(150))
