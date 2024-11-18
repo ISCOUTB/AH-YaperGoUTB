@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import axios from 'axios';
 import { useValidFormStore } from '@/stores/validFormStore';
-//const msg = ref('YapperGO')
 
 export default {
   data() {
