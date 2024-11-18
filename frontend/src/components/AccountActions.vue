@@ -1,24 +1,24 @@
 <script>
 import { useValidFormStore } from '@/stores/validFormStore';
-import { ref} from 'vue';
+import { ref } from 'vue';
 
 
 export default {
     data() {
-    return {
-      correo: ref(''),
-      contraseña: ref(''),
-      validFormStore: useValidFormStore(),
+        return {
+            correo: ref(''),
+            contraseña: ref(''),
+            validFormStore: useValidFormStore(),
 
-      sessionActive: false,
-    };
-  },
+            sessionActive: false,
+        };
+    },
 
     methods: {
         closeSession() {
-              this.sessionActive = false;
-              console.log("Sessión Desactivada.");
-              this.validFormStore.validarForm('', '', this.sessionActive);
+            this.sessionActive = false;
+            console.log("Sessión Desactivada.");
+            this.validFormStore.validarForm('', '', this.sessionActive);
         },
     },
 };
@@ -29,7 +29,7 @@ export default {
 <template>
     <div class="continer my-4 ms-4 text-start color-text">
 
-        <div class="btn-group-vertical no-border-bg" role="group" aria-label="Vertical button group">
+        <div class="btn-group-vertical no-border-bg" aria-label="Vertical button group">
 
             <button type="button" class="btn btn-primary icono help">Help</button>
             <button type="button" class="btn btn-primary icono settings">Settings</button>

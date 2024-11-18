@@ -18,27 +18,27 @@ const filtros_marcados = ref([
     <h3 class="ms-3">Filtros</h3>
 
     <div class="form-check form-switch switch-verde">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
         v-model="filtros_marcados[0]" />
       <label class="form-check-label" for="flexSwitchCheckChecked">Documentos Personales</label>
     </div>
     <div class="form-check form-switch switch-rojo">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
         v-model="filtros_marcados[1]" />
       <label class="form-check-label" for="flexSwitchCheckChecked">Libros\Cuadernos</label>
     </div>
     <div class="form-check form-switch switch-azul">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
         v-model="filtros_marcados[2]" />
       <label class="form-check-label" for="flexSwitchCheckChecked">Termos\Loncheras</label>
     </div>
     <div class="form-check form-switch switch-amarillo">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
         v-model="filtros_marcados[3]" />
       <label class="form-check-label" for="flexSwitchCheckChecked">Bolsos\Carteras\</label>
     </div>
     <div class="form-check form-switch switch-purpura">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
         v-model="filtros_marcados[4]" />
       <label class="form-check-label" for="flexSwitchCheckChecked">Ropa\Calzado\Sombreros</label>
     </div>

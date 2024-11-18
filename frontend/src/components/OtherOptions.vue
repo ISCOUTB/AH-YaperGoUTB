@@ -7,7 +7,7 @@
     <div class="continer my-3 ms-4 text-start color-text">
         <h3 class="ms-4">Other</h3>
 
-        <div class="btn-group-vertical no-border-bg" role="group" aria-label="Vertical button group">
+        <div class="btn-group-vertical no-border-bg" aria-label="Vertical button group">
 
             <button type="button" class="btn btn-primary icono alert-obj">Reportes</button>
             <button type="button" class="btn btn-primary icono unclaimed ">No reclamados</button>
