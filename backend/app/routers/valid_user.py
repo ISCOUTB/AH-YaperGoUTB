@@ -5,7 +5,7 @@ import models, esquemas
 from database import SessionLocal
 from sqlalchemy.orm import Session
 
-
+#crear archivo para pruebas unitarias
 
 router = APIRouter()
 
