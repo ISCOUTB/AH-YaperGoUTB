@@ -6,3 +6,5 @@ pymysql==1.1.1
 cryptography==43.0.3
 python-dotenv==1.0.1
 mysqlclient==2.2.5  # Ajusta la versión según sea necesario
+#pytest
+#pytest-cov
