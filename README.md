@@ -2,7 +2,7 @@
 
 ![Versión](https://img.shields.io/badge/version-1.0.0-green)
 
-**Este software conecta a personas que han perdido objetos con quienes los han encontrado, facilitando su devolución.**
+**Este software conecta a personas que han perdido objetos con quienes los han encontrado dentro de la Universidad Tecnológica de Bolívar, facilitando su devolución.**
 
 ---
 
