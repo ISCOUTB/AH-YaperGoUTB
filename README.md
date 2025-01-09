@@ -1,6 +1,7 @@
 # AH-YaperGoUTB
 
 ![Versión](https://img.shields.io/badge/version-1.0.0-green)
+![Build In Progress](https://img.shields.io/badge/build-In%20Progress-blue)
 
 **Este software conecta a personas que han perdido objetos con quienes los han encontrado dentro de la Universidad Tecnológica de Bolívar, facilitando su devolución.**
 
