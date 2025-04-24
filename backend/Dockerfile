@@ -1,22 +1,29 @@
-# Utiliza una imagen base de Python con una versión adecuada y paquetes de desarrollo
-FROM python:3.12
-# Establece el directorio de trabajo dentro del contenedor
-RUN mkdir /backend
+FROM python:3.13-slim
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    default-libmysqlclient-dev \
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Crear directorio de trabajo
 WORKDIR /backend
 
-# Copia el requirements.txt y los archivos de la aplicación
+# Copiar archivos de la app
 COPY requirements.txt ./
-COPY ./app ./
+COPY ./app ./app
 
-# Instala las dependencias
+# Instalar dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Variables de entorno
 ARG URL_DATABASE
 ENV URL_DATABASE=${URL_DATABASE}
 
-# Exponer el puerto en el que se ejecutará la aplicación (ajusta si es necesario)
+# Para usar las importaciones desde /app sin prefijo "app."
+ENV PYTHONPATH=/app
+
 EXPOSE 8000
 
-
-# Comando para ejecutar la aplicación
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Comando para ejecutar la app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

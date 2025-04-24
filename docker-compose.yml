@@ -54,8 +54,8 @@ services:
     environment:
       - URL_DATABASE=${URL_DATABASE} #cambiar ruta de la base de datos
     volumes:
-      - ./backend:/app
-    command: ["./wait-for-it.sh", "db:3306", "--", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+      - ./backend/app:/app
+    command: ["./app/wait-for-it.sh", "db:3306", "--", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
     networks:
       - ag
 
